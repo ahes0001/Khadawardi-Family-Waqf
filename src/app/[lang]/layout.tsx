@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import { Reem_Kufi, Tajawal, Cormorant, Inter } from "next/font/google";
+import { Cairo, Tajawal, Cormorant, Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { getDictionary, type Locale } from "@/lib/dictionaries";
 import "../globals.css";
 
+
+
 // Arabic fonts
-const reemKufi = Reem_Kufi({
-  variable: "--font-reem-kufi",
+
+const cairo = Cairo({
+  variable: "--font-cairo",
   subsets: ["arabic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const tajawal = Tajawal({
@@ -68,7 +71,7 @@ export default async function RootLayout({
     <html
       lang={lang}
       dir={dir}
-      className={`${reemKufi.variable} ${tajawal.variable} ${cormorant.variable} ${inter.variable} h-full antialiased`}
+      className={`${cairo.variable} ${tajawal.variable} ${cormorant.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-arabic-body">
         {children}

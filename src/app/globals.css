@@ -49,8 +49,11 @@ body {
 }
 
 /* Typography - Arabic */
-.font-arabic-heading {
+/* .font-arabic-heading {
   font-family: var(--font-reem-kufi), sans-serif;
+} */
+ .font-arabic-heading {
+  font-family: var(--font-cairo), sans-serif;
 }
 
 .font-arabic-body {
