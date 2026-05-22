@@ -93,6 +93,47 @@
     "gated": {
       "title": "Distribution Details",
       "description": "Annual returns are distributed based on a points system that takes into account the number of individuals in each family and their special needs. The General Assembly meeting is held annually to review performance and approve the budget."
+    },
+    "exploration": {
+      "variationA": {
+        "label": "Variation A — Editorial Long-form",
+        "intro": "The concept of family waqf represents one of the most enduring forms of Islamic philanthropy, bridging personal devotion with collective benefit. In its essence, a waqf is not merely a legal arrangement but a covenant across time.",
+        "definition": "A family waqf dedicates assets for the benefit of the founder during their lifetime, then passes to descendants in perpetuity. This creates an unbroken chain of stewardship that spans generations.",
+        "legacy": "The Khadawardi Waqf embodies this tradition, established with foresight and maintained with care through nearly a century of change."
+      },
+      "variationB": {
+        "label": "Variation B — Definition Cards",
+        "definitionTitle": "Definition",
+        "definitionText": "A legal dedication of assets for familial benefit across generations",
+        "purposeTitle": "Purpose",
+        "purposeText": "Preserve wealth, strengthen bonds, ensure continuity",
+        "scopeTitle": "Scope",
+        "scopeText": "Real estate and financial assets under unified management",
+        "durationTitle": "Duration",
+        "durationText": "Perpetual — from founder through all descendants"
+      },
+      "variationC": {
+        "label": "Variation C — Q&A Format",
+        "q1": "What makes a waqf different from inheritance?",
+        "a1": "Unlike inheritance, which divides assets at death, a waqf preserves the core assets intact while distributing only their returns. The principal remains protected for future generations.",
+        "q2": "Who can benefit from the waqf?",
+        "a2": "All descendants of the founders, in perpetuity. The waqf creates an expanding circle of beneficiaries that grows with each generation.",
+        "q3": "How are decisions made?",
+        "a3": "Through the General Assembly of beneficiaries, with oversight from appointed administrators who ensure compliance with the original deed and Sharia principles."
+      },
+      "beneficiaries": {
+        "title": "Current Beneficiaries",
+        "count": "Approximately 200 individuals",
+        "generations": "Spanning the 8th and 9th generations",
+        "locations": "Across Saudi Arabia and internationally"
+      },
+      "gatedSection": {
+        "title": "Distribution Arrangements",
+        "description": "Details of the current distribution methodology, beneficiary registry, and upcoming disbursement schedule.",
+        "pointsSystem": "Points-based allocation considering family size and needs",
+        "meetingSchedule": "Annual General Assembly held in Q4",
+        "nextDistribution": "Next distribution scheduled for"
+      }
     }
   },
   "history": {
@@ -127,6 +168,56 @@
     "gated": {
       "title": "Internal Milestones",
       "description": "Important milestones in the family's history and the growth of the waqf"
+    },
+    "exploration": {
+      "variationA": {
+        "label": "Variation A — Vertical Timeline with Center Line",
+        "foundationYear": "1932",
+        "foundationTitle": "Foundation",
+        "foundationDesc": "Established with the founding of the Kingdom",
+        "firstGenYear": "1950",
+        "firstGenTitle": "First Generation",
+        "firstGenDesc": "Succession to the founders' children",
+        "expansionYear": "1975",
+        "expansionTitle": "Expansion",
+        "expansionDesc": "Second building and growth",
+        "modernYear": "2000",
+        "modernTitle": "Modernization",
+        "modernDesc": "Digital transformation begins",
+        "presentYear": "2024",
+        "presentTitle": "Present Day",
+        "presentDesc": "Continuity and growth"
+      },
+      "variationB": {
+        "label": "Variation B — Generation Cards Grid",
+        "gen1Title": "The Founders",
+        "gen1Years": "1932 — 1950",
+        "gen1Desc": "Three visionaries establish the waqf",
+        "gen2Title": "First Generation",
+        "gen2Years": "1950 — 1975",
+        "gen2Desc": "Five sons carry the trust forward",
+        "gen3Title": "Expansion Era",
+        "gen3Years": "1975 — 2000",
+        "gen3Desc": "Growth and development",
+        "gen4Title": "Modern Era",
+        "gen4Years": "2000 — Present",
+        "gen4Desc": "Digital stewardship begins"
+      },
+      "variationC": {
+        "label": "Variation C — Horizontal Scroll Timeline",
+        "scrollHint": "Scroll to explore",
+        "era1": "Foundation",
+        "era2": "Growth",
+        "era3": "Modern",
+        "era4": "Future"
+      },
+      "gatedSection": {
+        "title": "Family Milestones",
+        "description": "Personal stories and internal developments",
+        "milestone1": "First family gathering",
+        "milestone2": "Administrative restructuring",
+        "milestone3": "Digital archive established"
+      }
     }
   },
   "founders": {
@@ -150,6 +241,33 @@
     "gated": {
       "title": "Memories and Stories",
       "description": "Stories and memories from the lives of the founders"
+    },
+    "exploration": {
+      "variationA": {
+        "label": "Variation A — Editorial Portrait + Biography",
+        "founder1Role": "Primary Founder",
+        "founder2Role": "Co-Founder",
+        "founder3Role": "Family Matriarch",
+        "extendedBio1": "Sheikh Abdulrahman was a visionary merchant who foresaw the importance of preserving family wealth through Islamic endowment. His business acumen and spiritual devotion guided the establishment of this lasting institution.",
+        "extendedBio2": "Sheikh Mohammed complemented his brother's vision with practical wisdom and a generous spirit. He ensured the waqf remained accessible and beneficial to all family members regardless of circumstance.",
+        "extendedBio3": "Sheikha Fatima brought strength and compassion to the family. Her dedication to education and moral upbringing shaped generations who continue to honor the waqf's principles."
+      },
+      "variationB": {
+        "label": "Variation B — Compact Card Grid",
+        "cardSubtitle": "Founding Generation"
+      },
+      "variationC": {
+        "label": "Variation C — Featured Founder Pattern",
+        "featuredLabel": "Primary Founder",
+        "secondaryLabel": "Co-Founders"
+      },
+      "gatedSection": {
+        "title": "Extended Biographies",
+        "description": "Detailed personal histories, private papers, and family recollections",
+        "story1": "The founding meeting at the old family home",
+        "story2": "Early challenges and how they were overcome",
+        "story3": "Letters between the founders"
+      }
     }
   },
   "property": {
@@ -164,6 +282,25 @@
       "building2": {
         "name": "South Building",
         "description": "Added in 1975 to accommodate the growing number of guests"
+      }
+    },
+    "exploration": {
+      "variationA": {
+        "label": "Variation A — Split Screen Layout",
+        "building1Label": "Historic Core",
+        "building2Label": "Modern Addition",
+        "year1": "Established 1932",
+        "year2": "Added 1975",
+        "locationLabel": "Location",
+        "locationValue": "Makkah, Hijaz"
+      },
+      "variationB": {
+        "label": "Variation B — Stacked Editorial Layout",
+        "intro": "Two buildings, one legacy. The property spans nearly a century of architectural evolution while maintaining its essential character.",
+        "featuresTitle": "Key Features",
+        "feature1": "Heritage architecture",
+        "feature2": "Modern amenities",
+        "feature3": "Central location"
       }
     }
   },
@@ -199,6 +336,23 @@
       "message": "Message",
       "submit": "Send",
       "success": "Your message has been sent successfully"
+    },
+    "exploration": {
+      "variationA": {
+        "label": "Variation A — Centered Single Column",
+        "formTitle": "Send us a message",
+        "formSubtitle": "We typically respond within 2-3 business days"
+      },
+      "variationB": {
+        "label": "Variation B — Split Layout",
+        "contactInfoTitle": "Get in Touch",
+        "contactInfoText": "For general inquiries, use the form. For urgent matters, please contact the family office directly.",
+        "formTitle": "Send Message",
+        "addressLabel": "Address",
+        "addressValue": "Makkah, Kingdom of Saudi Arabia",
+        "emailLabel": "Email",
+        "emailValue": "contact@khadawardi.waqf"
+      }
     }
   },
   "common": {
