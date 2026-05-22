@@ -1,0 +1,211 @@
+{
+  "site": {
+    "name": "Khadawardi Waqf",
+    "tagline": "A family waqf with deep roots since the founding of Saudi Arabia"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About the Waqf",
+    "history": "History",
+    "founders": "The Founders",
+    "property": "The Property",
+    "familyTree": "Family Tree",
+    "contact": "Contact",
+    "familyView": "Member View",
+    "publicView": "Visitor View",
+    "navigation": "Navigation"
+  },
+  "footer": {
+    "copyright": "© {year} Khadawardi Waqf. All rights reserved.",
+    "tagline": "Preserving heritage and connecting generations",
+    "contactUs": "Contact Us"
+  },
+  "home": {
+    "hero": {
+      "title": "Khadawardi Waqf",
+      "subtitle": "A family waqf with deep roots since the founding of Saudi Arabia",
+      "ctaPrimary": "Discover Our History",
+      "ctaSecondary": "Explore Family Tree"
+    },
+    "aboutWaqf": {
+      "title": "What is a Family Waqf?",
+      "description": "A family waqf is the dedication of property or financial assets for the benefit of the founder during their lifetime, and then to their descendants. It is considered one of the noblest forms of kindness to family and preserving family heritage."
+    },
+    "quickFacts": {
+      "title": "At a Glance",
+      "founded": "Founded in {year}",
+      "generations": "{count} Generations",
+      "members": "{count} Members",
+      "buildings": "{count} Buildings"
+    },
+    "founders": {
+      "title": "The Founders",
+      "description": "These fathers established this waqf to preserve the family heritage and care for future generations",
+      "viewAll": "Discover More"
+    },
+    "history": {
+      "title": "Our History",
+      "description": "A journey spanning generations, from the founding of the Kingdom of Saudi Arabia to the present day",
+      "viewTimeline": "Explore Timeline"
+    },
+    "gated": {
+      "announcements": {
+        "title": "Recent Announcements",
+        "item1": "Annual General Assembly Meeting",
+        "item2": "Member Data Update for the New Year"
+      },
+      "gatherings": {
+        "title": "Upcoming Gatherings",
+        "item1": "Annual Family Gathering - Ramadan",
+        "item2": "Workshop for the New Generation"
+      }
+    }
+  },
+  "about": {
+    "title": "About the Waqf",
+    "whatIsWaqf": {
+      "title": "What is a Family Waqf?",
+      "description": "A family waqf is the dedication of a financial or real estate asset for the founder to benefit from during their lifetime, then the benefit of this asset passes to their descendants. It is one of the most important Sharia-compliant forms of preserving family wealth and ensuring its continuity across generations."
+    },
+    "purpose": {
+      "title": "Purpose of This Waqf",
+      "description": "The Khadawardi Waqf aims to preserve and grow family assets, and ensure that family members benefit from their returns in a fair and sustainable manner. The waqf also seeks to strengthen kinship ties and reinforce bonds between family members."
+    },
+    "currentGeneration": {
+      "title": "Current Generation of Beneficiaries",
+      "description": "The current generation of beneficiaries consists of grandchildren and children from the eighth and ninth generations, numbering approximately 200 individuals spread across various regions of the Kingdom and the world."
+    },
+    "principles": {
+      "title": "Waqf Principles",
+      "stewardship": {
+        "title": "Stewardship",
+        "description": "Preserving assets and maintaining them for the benefit of future generations"
+      },
+      "fairness": {
+        "title": "Fairness",
+        "description": "Distributing returns fairly and equally among all beneficiaries"
+      },
+      "unity": {
+        "title": "Unity",
+        "description": "Strengthening kinship ties and communication between family members"
+      }
+    },
+    "gated": {
+      "title": "Distribution Details",
+      "description": "Annual returns are distributed based on a points system that takes into account the number of individuals in each family and their special needs. The General Assembly meeting is held annually to review performance and approve the budget."
+    }
+  },
+  "history": {
+    "title": "History",
+    "timeline": {
+      "foundation": {
+        "year": "1932",
+        "title": "Foundation",
+        "description": "The waqf was established at the beginning of the unified Kingdom of Saudi Arabia"
+      },
+      "firstGeneration": {
+        "year": "1950",
+        "title": "First Generation",
+        "description": "Transfer of ownership to the first generation of sons"
+      },
+      "expansion": {
+        "year": "1975",
+        "title": "Expansion",
+        "description": "Addition of the second building and development of real estate assets"
+      },
+      "modernization": {
+        "year": "2000",
+        "title": "Modernization",
+        "description": "Development of administrative structures and adoption of digital systems"
+      },
+      "present": {
+        "year": "2024",
+        "title": "Today",
+        "description": "Continued growth and development while maintaining authentic values"
+      }
+    },
+    "gated": {
+      "title": "Internal Milestones",
+      "description": "Important milestones in the family's history and the growth of the waqf"
+    }
+  },
+  "founders": {
+    "title": "The Founders",
+    "subtitle": "Fathers who founded this waqf with foresight for the future",
+    "founder1": {
+      "name": "Sheikh Abdulrahman Al-Khadawardi",
+      "dates": "1895 - 1965",
+      "bio": "A prominent businessman and merchant who established this waqf at the beginning of the unified Kingdom. He was known for his wisdom and foresight."
+    },
+    "founder2": {
+      "name": "Sheikh Mohammed Al-Khadawardi",
+      "dates": "1900 - 1972",
+      "bio": "Co-founder and support to his brother in building this family institution. He was known for his generosity and love of good deeds."
+    },
+    "founder3": {
+      "name": "Sheikha Fatima Al-Khadawardiyah",
+      "dates": "1905 - 1980",
+      "bio": "The backbone of the family, she supported the waqf with dedication and worked on raising generations with values of kindness and benevolence."
+    },
+    "gated": {
+      "title": "Memories and Stories",
+      "description": "Stories and memories from the lives of the founders"
+    }
+  },
+  "property": {
+    "title": "The Property",
+    "hotel": {
+      "name": "Al-Khadawardi Hotel",
+      "description": "Located in the heart of the Hijaz, the hotel comprises two historic buildings that have been renovated to provide modern services while preserving the authentic character of the region.",
+      "building1": {
+        "name": "Main Building",
+        "description": "The original building founded in 1932, fully restored in 2010"
+      },
+      "building2": {
+        "name": "South Building",
+        "description": "Added in 1975 to accommodate the growing number of guests"
+      }
+    }
+  },
+  "familyTree": {
+    "title": "Family Tree",
+    "subtitle": "Explore your roots and discover your connections to the family",
+    "search": {
+      "placeholder": "Search for a member...",
+      "locked": "Sign in to search"
+    },
+    "modal": {
+      "generation": "Generation",
+      "relation": "Relation",
+      "dates": "Dates",
+      "contact": "Contact Information"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We welcome your communication and inquiries",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "relation": {
+        "label": "Relation to Family",
+        "options": {
+          "family": "Family Member",
+          "relative": "Relative",
+          "researcher": "Researcher",
+          "other": "Other"
+        }
+      },
+      "message": "Message",
+      "submit": "Send",
+      "success": "Your message has been sent successfully"
+    }
+  },
+  "common": {
+    "readMore": "Read More",
+    "loading": "Loading...",
+    "close": "Close",
+    "familyOnly": "Family Members Only",
+    "location": "Makkah, Saudi Arabia"
+  }
+}

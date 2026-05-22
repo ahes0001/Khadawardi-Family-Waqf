@@ -5,10 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { useFamilyView } from "@/lib/context/FamilyViewContext";
 import { familyMembers, searchMembers, type FamilyMember } from "@/lib/data/familyTree";
-import arTranslations from "@/lib/translations/ar.json";
+import type { Dictionary } from "@/lib/dictionaries";
+
+interface FamilyTreeProps {
+  dict: Dictionary;
+}
 
 // Custom tree component (simpler than react-d3-tree for static export)
-export function FamilyTree() {
+export function FamilyTree({ dict }: FamilyTreeProps) {
   const { isFamilyView } = useFamilyView();
   const [selectedMember, setSelectedMember] = useState<FamilyMember | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -25,13 +29,13 @@ export function FamilyTree() {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder={isFamilyView ? arTranslations.familyTree.search.placeholder : arTranslations.familyTree.search.locked}
+            placeholder={isFamilyView ? dict.familyTree.search.placeholder : dict.familyTree.search.locked}
             disabled={!isFamilyView}
             className="w-full px-4 py-3 rounded-lg border border-[#E8E3D7] bg-white focus:outline-none focus:ring-2 focus:ring-[#1F4A47] disabled:bg-[#FAF8F3] disabled:cursor-not-allowed"
           />
           {!isFamilyView && (
             <div className="absolute inset-0 flex items-center justify-center bg-[#FAF8F3]/80 rounded-lg">
-              <span className="text-sm text-[#6B6B68]">{arTranslations.familyTree.search.locked}</span>
+              <span className="text-sm text-[#6B6B68]">{dict.familyTree.search.locked}</span>
             </div>
           )}
         </div>
@@ -77,6 +81,7 @@ export function FamilyTree() {
             member={selectedMember}
             onClose={() => setSelectedMember(null)}
             isFamilyView={isFamilyView}
+            dict={dict}
           />
         )}
       </AnimatePresence>
@@ -139,10 +144,12 @@ function MemberModal({
   member,
   onClose,
   isFamilyView,
+  dict,
 }: {
   member: FamilyMember;
   onClose: () => void;
   isFamilyView: boolean;
+  dict: Dictionary;
 }) {
   return (
     <motion.div
@@ -172,21 +179,21 @@ function MemberModal({
 
         <div className="space-y-3 text-sm">
           <p>
-            <span className="font-medium text-[#6B6B68]">{arTranslations.familyTree.modal.generation}:</span>{" "}
+            <span className="font-medium text-[#6B6B68]">{dict.familyTree.modal.generation}:</span>{" "}
             {member.generation}
           </p>
           <p>
-            <span className="font-medium text-[#6B6B68]">{arTranslations.familyTree.modal.relation}:</span>{" "}
+            <span className="font-medium text-[#6B6B68]">{dict.familyTree.modal.relation}:</span>{" "}
             {member.relation}
           </p>
           <p>
-            <span className="font-medium text-[#6B6B68]">{arTranslations.familyTree.modal.dates}:</span>{" "}
+            <span className="font-medium text-[#6B6B68]">{dict.familyTree.modal.dates}:</span>{" "}
             {member.birthYear} {member.deathYear ? `- ${member.deathYear}` : ""}
           </p>
           
           {isFamilyView && member.contact && (
             <p>
-              <span className="font-medium text-[#6B6B68]">{arTranslations.familyTree.modal.contact}:</span>{" "}
+              <span className="font-medium text-[#6B6B68]">{dict.familyTree.modal.contact}:</span>{" "}
               {member.contact}
             </p>
           )}
@@ -205,7 +212,7 @@ function MemberModal({
         </div>
 
         <Button onClick={onClose} className="w-full mt-6">
-          {arTranslations.common.close}
+          {dict.common.close}
         </Button>
       </motion.div>
     </motion.div>

@@ -1,3 +1,9 @@
+/**
+ * History Preview Section
+ * 
+ * Preview of the timeline with key events.
+ */
+
 "use client";
 
 import React from "react";
@@ -5,8 +11,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { StarDivider } from "@/components/patterns";
-import { useLanguage } from "@/lib/context/LanguageContext";
-import arTranslations from "@/lib/translations/ar.json";
+import type { Dictionary, Locale } from "@/lib/dictionaries";
+
+interface HistoryPreviewProps {
+  dict: Dictionary;
+  lang: Locale;
+}
 
 const timelineEvents = [
   { key: "foundation", year: "1932" },
@@ -14,9 +24,8 @@ const timelineEvents = [
   { key: "expansion", year: "1975" },
 ];
 
-export function HistoryPreview() {
-  const { language } = useLanguage();
-  const timelineData = arTranslations.history.timeline as Record<string, { year: string; title: string; description: string }>;
+export function HistoryPreview({ dict, lang }: HistoryPreviewProps) {
+  const timelineData = dict.history.timeline as Record<string, { year: string; title: string; description: string }>;
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -28,10 +37,10 @@ export function HistoryPreview() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-[#1F4A47] font-arabic-heading mb-4">
-            {arTranslations.home.history.title}
+            {dict.home.history.title}
           </h2>
           <p className="text-lg text-[#6B6B68] max-w-2xl mx-auto">
-            {arTranslations.home.history.description}
+            {dict.home.history.description}
           </p>
         </motion.div>
 
@@ -67,9 +76,9 @@ export function HistoryPreview() {
         </div>
 
         <div className="text-center mt-12">
-          <Link href={`/${language}/history`}>
+          <Link href={`/${lang}/history`}>
             <Button variant="outline">
-              {arTranslations.home.history.viewTimeline}
+              {dict.home.history.viewTimeline}
             </Button>
           </Link>
         </div>

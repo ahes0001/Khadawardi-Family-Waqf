@@ -11,8 +11,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { useLanguage } from "@/lib/context/LanguageContext";
-import arTranslations from "@/lib/translations/ar.json";
+import type { Dictionary, Locale } from "@/lib/dictionaries";
+
+interface FoundersPreviewProps {
+  dict: Dictionary;
+  lang: Locale;
+}
 
 interface Founder {
   name: string;
@@ -26,9 +30,8 @@ const founders = [
   { key: "founder3", imageColor: "#D4B896" },
 ];
 
-export function FoundersPreview() {
-  const { language } = useLanguage();
-  const foundersData = arTranslations.founders as unknown as Record<string, Founder | string>;
+export function FoundersPreview({ dict, lang }: FoundersPreviewProps) {
+  const foundersData = dict.founders as unknown as Record<string, Founder | string>;
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#FAF8F3]">
@@ -40,10 +43,10 @@ export function FoundersPreview() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-[#1F4A47] font-arabic-heading mb-4">
-            {arTranslations.home.founders.title}
+            {dict.home.founders.title}
           </h2>
           <p className="text-lg text-[#6B6B68] max-w-2xl mx-auto">
-            {arTranslations.home.founders.description}
+            {dict.home.founders.description}
           </p>
         </motion.div>
 
@@ -74,9 +77,9 @@ export function FoundersPreview() {
         </div>
 
         <div className="text-center">
-          <Link href={`/${language}/founders`}>
+          <Link href={`/${lang}/founders`}>
             <Button variant="outline">
-              {arTranslations.home.founders.viewAll}
+              {dict.home.founders.viewAll}
             </Button>
           </Link>
         </div>

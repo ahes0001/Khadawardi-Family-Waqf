@@ -9,33 +9,38 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/context/LanguageContext";
 import { useFamilyView } from "@/lib/context/FamilyViewContext";
 import { EightPointedStar } from "@/components/patterns";
-import arTranslations from "@/lib/translations/ar.json";
+import type { Dictionary, Locale } from "@/lib/dictionaries";
 
-const navLinks = [
-  { href: "/", labelAr: "الرئيسية", labelEn: "Home" },
-  { href: "/about", labelAr: "عن الوقف", labelEn: "About" },
-  { href: "/history", labelAr: "التاريخ", labelEn: "History" },
-  { href: "/founders", labelAr: "المؤسسون", labelEn: "Founders" },
-  { href: "/property", labelAr: "الوقف", labelEn: "Property" },
-  { href: "/family-tree", labelAr: "شجرة العائلة", labelEn: "Family Tree" },
-  { href: "/contact", labelAr: "تواصل", labelEn: "Contact" },
+interface NavbarProps {
+  dict: Dictionary;
+  lang: Locale;
+}
+
+const getNavLinks = (dict: Dictionary) => [
+  { href: "/", label: dict.nav.home },
+  { href: "/about", label: dict.nav.about },
+  { href: "/history", label: dict.nav.history },
+  { href: "/founders", label: dict.nav.founders },
+  { href: "/property", label: dict.nav.property },
+  { href: "/family-tree", label: dict.nav.familyTree },
+  { href: "/contact", label: dict.nav.contact },
 ];
 
-export function Navbar() {
+export function Navbar({ dict, lang }: NavbarProps) {
   const { language, setLanguage, dir } = useLanguage();
   const { isFamilyView, toggleFamilyView } = useFamilyView();
-  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Get current path without language prefix
-  const currentPath = pathname.replace(/^\/(ar|en)/, "") || "/";
+  const navLinks = getNavLinks(dict);
 
   const isActive = (href: string) => {
+    // Get current path from window location since we're in a client component
+    if (typeof window === "undefined") return false;
+    const currentPath = window.location.pathname.replace(/^\/(ar|en)/, "") || "/";
     if (href === "/") return currentPath === "/";
     return currentPath.startsWith(href);
   };
@@ -45,7 +50,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href={`/${language}`} className="flex items-center gap-3 group">
+          <Link href={`/${lang}`} className="flex items-center gap-3 group">
             <div className="relative">
               <EightPointedStar
                 size={32}
@@ -55,10 +60,10 @@ export function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-bold text-[#1F4A47] leading-tight">
-                {arTranslations.site.name}
+                {dict.site.name}
               </span>
               <span className="text-xs text-[#6B6B68] hidden sm:block">
-                {arTranslations.site.tagline}
+                {dict.site.tagline}
               </span>
             </div>
           </Link>
@@ -68,14 +73,14 @@ export function Navbar() {
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={`/${language}${link.href}`}
+                href={`/${lang}${link.href}`}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                   isActive(link.href)
                     ? "text-[#1F4A47] bg-[#1F4A47]/10"
                     : "text-[#6B6B68] hover:text-[#1F4A47] hover:bg-[#1F4A47]/5"
                 }`}
               >
-                {language === "ar" ? link.labelAr : link.labelEn}
+                {link.label}
               </Link>
             ))}
           </nav>
@@ -125,8 +130,8 @@ export function Navbar() {
               </svg>
               <span className="hidden md:inline">
                 {isFamilyView
-                  ? arTranslations.nav.publicView
-                  : arTranslations.nav.familyView}
+                  ? dict.nav.publicView
+                  : dict.nav.familyView}
               </span>
             </button>
 
@@ -178,7 +183,7 @@ export function Navbar() {
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={`/${language}${link.href}`}
+                  href={`/${lang}${link.href}`}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                     isActive(link.href)
@@ -186,7 +191,7 @@ export function Navbar() {
                       : "text-[#6B6B68] hover:text-[#1F4A47] hover:bg-[#1F4A47]/5"
                   }`}
                 >
-                  {language === "ar" ? link.labelAr : link.labelEn}
+                  {link.label}
                 </Link>
               ))}
               
@@ -216,8 +221,8 @@ export function Navbar() {
                   />
                 </svg>
                 {isFamilyView
-                  ? arTranslations.nav.publicView
-                  : arTranslations.nav.familyView}
+                  ? dict.nav.publicView
+                  : dict.nav.familyView}
               </button>
             </nav>
           </motion.div>

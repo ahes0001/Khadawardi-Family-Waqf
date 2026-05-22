@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Reem_Kufi, Tajawal, Cormorant, Inter } from "next/font/google";
-import "./globals.css";
-import { LanguageProvider } from "@/lib/context/LanguageContext";
-import { FamilyViewProvider } from "@/lib/context/FamilyViewContext";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import { notFound } from "next/navigation";
+import { getDictionary, type Locale } from "@/lib/dictionaries";
+import "../globals.css";
 
 // Arabic fonts
 const reemKufi = Reem_Kufi({
@@ -33,21 +31,37 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata: Metadata = {
-  title: "وقف الخضاوردي | Khadawardi Waqf",
-  description:
-    "وقف ذري يضم أصولاً راسخة منذ تأسيس المملكة العربية السعودية. A family waqf with deep roots since the founding of Saudi Arabia.",
-};
+// Generate static params for both locales
+export function generateStaticParams() {
+  return [{ lang: "ar" }, { lang: "en" }];
+}
 
-export default function RootLayout({
+// Generate metadata based on locale
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const dict = await getDictionary(lang as Locale);
+  
+  return {
+    title: `${dict.site.name} | ${dict.site.tagline}`,
+    description: dict.site.tagline,
+  };
+}
+
+export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { lang?: string };
+  params: Promise<{ lang: string }>;
 }) {
-  // Default to Arabic if no language specified
-  const lang = params?.lang === "en" ? "en" : "ar";
+  const { lang } = await params;
+
+  // Validate locale
+  if (lang !== "ar" && lang !== "en") {
+    notFound();
+  }
+
+  const dict = await getDictionary(lang as Locale);
   const dir = lang === "ar" ? "rtl" : "ltr";
 
   return (
@@ -57,13 +71,7 @@ export default function RootLayout({
       className={`${reemKufi.variable} ${tajawal.variable} ${cormorant.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-arabic-body">
-        <LanguageProvider initialLanguage={lang as "ar" | "en"}>
-          <FamilyViewProvider>
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </FamilyViewProvider>
-        </LanguageProvider>
+        {children}
       </body>
     </html>
   );

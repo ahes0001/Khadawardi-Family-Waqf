@@ -8,21 +8,25 @@
 
 import React from "react";
 import Link from "next/link";
-import { useLanguage } from "@/lib/context/LanguageContext";
 import { EightPointedStar, StarPattern } from "@/components/patterns";
-import arTranslations from "@/lib/translations/ar.json";
+import type { Dictionary, Locale } from "@/lib/dictionaries";
 
-const footerLinks = [
-  { href: "/", labelAr: "الرئيسية", labelEn: "Home" },
-  { href: "/about", labelAr: "عن الوقف", labelEn: "About" },
-  { href: "/history", labelAr: "التاريخ", labelEn: "History" },
-  { href: "/family-tree", labelAr: "شجرة العائلة", labelEn: "Family Tree" },
-  { href: "/contact", labelAr: "تواصل", labelEn: "Contact" },
+interface FooterProps {
+  dict: Dictionary;
+  lang: Locale;
+}
+
+const getFooterLinks = (dict: Dictionary) => [
+  { href: "/", label: dict.nav.home },
+  { href: "/about", label: dict.nav.about },
+  { href: "/history", label: dict.nav.history },
+  { href: "/family-tree", label: dict.nav.familyTree },
+  { href: "/contact", label: dict.nav.contact },
 ];
 
-export function Footer() {
-  const { language } = useLanguage();
+export function Footer({ dict, lang }: FooterProps) {
   const currentYear = new Date().getFullYear();
+  const footerLinks = getFooterLinks(dict);
 
   return (
     <footer className="bg-[#1F4A47] text-white mt-auto relative overflow-hidden">
@@ -37,29 +41,29 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <EightPointedStar size={40} color="#D4B896" />
-              <span className="text-xl font-bold">{arTranslations.site.name}</span>
+              <span className="text-xl font-bold">{dict.site.name}</span>
             </div>
             <p className="text-white/70 text-sm leading-relaxed max-w-xs">
-              {arTranslations.site.tagline}
+              {dict.site.tagline}
             </p>
             <p className="text-white/50 text-xs italic">
-              {arTranslations.footer.tagline}
+              {dict.footer.tagline}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
             <h3 className="text-[#D4B896] font-semibold mb-4">
-              {language === "ar" ? "التنقل" : "Navigation"}
+              {dict.nav.navigation}
             </h3>
             <nav className="space-y-2">
               {footerLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={`/${language}${link.href}`}
+                  href={`/${lang}${link.href}`}
                   className="block text-white/70 hover:text-white transition-colors text-sm"
                 >
-                  {language === "ar" ? link.labelAr : link.labelEn}
+                  {link.label}
                 </Link>
               ))}
             </nav>
@@ -68,10 +72,10 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h3 className="text-[#D4B896] font-semibold mb-4">
-              {language === "ar" ? "تواصل معنا" : "Contact"}
+              {dict.footer.contactUs}
             </h3>
             <address className="not-italic space-y-2 text-sm text-white/70">
-              <p>{language === "ar" ? "مكة المكرمة، المملكة العربية السعودية" : "Makkah, Saudi Arabia"}</p>
+              <p>{dict.common.location}</p>
               <p>
                 <a href="mailto:info@khadawardi.waqf" className="hover:text-white transition-colors">
                   info@khadawardi.waqf
@@ -84,7 +88,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/50 text-sm">
-            {arTranslations.footer.copyright.replace("{year}", String(currentYear))}
+            {dict.footer.copyright.replace("{year}", String(currentYear))}
           </p>
           <div className="flex items-center gap-2 text-white/30 text-xs">
             <EightPointedStar size={16} color="currentColor" opacity={0.5} />

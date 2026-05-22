@@ -11,12 +11,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { EightPointedStar, StarPattern } from "@/components/patterns";
-import { useLanguage } from "@/lib/context/LanguageContext";
-import arTranslations from "@/lib/translations/ar.json";
+import type { Dictionary, Locale } from "@/lib/dictionaries";
 
-export function HeroSection() {
-  const { language } = useLanguage();
+interface HeroSectionProps {
+  dict: Dictionary;
+  lang: Locale;
+}
 
+export function HeroSection({ dict, lang }: HeroSectionProps) {
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-[#1F4A47]">
       {/* Background pattern */}
@@ -49,22 +51,22 @@ export function HeroSection() {
           </motion.div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 font-arabic-heading leading-tight">
-            {arTranslations.home.hero.title}
+            {dict.home.hero.title}
           </h1>
 
           <p className="text-xl sm:text-2xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed">
-            {arTranslations.home.hero.subtitle}
+            {dict.home.hero.subtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href={`/${language}/history`}>
+            <Link href={`/${lang}/history`}>
               <Button size="lg" className="min-w-[180px]">
-                {arTranslations.home.hero.ctaPrimary}
+                {dict.home.hero.ctaPrimary}
               </Button>
             </Link>
-            <Link href={`/${language}/family-tree`}>
+            <Link href={`/${lang}/family-tree`}>
               <Button size="lg" variant="outline" className="min-w-[180px] border-white text-white hover:bg-white hover:text-[#1F4A47]">
-                {arTranslations.home.hero.ctaSecondary}
+                {dict.home.hero.ctaSecondary}
               </Button>
             </Link>
           </div>

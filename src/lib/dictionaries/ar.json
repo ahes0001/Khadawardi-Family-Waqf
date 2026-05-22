@@ -1,86 +1,4 @@
-You are an expert full-stack web developer with strong sensibility for bilingual (Arabic/English) sites and Islamic visual design traditions. Your task is to generate the first-stage prototype of an informational website for a family waqf (وقف ذري / family endowment) based in the Hijaz region of Saudi Arabia. This is a layout and design prototype — not a finished product. Prioritize clean structure, reusable components, and visual polish over feature completeness.
-Project context
-This is a private family project documenting a multi-generational family waqf (around 8–9 generations, 200–300 people total, currently around 200 living members). The waqf's principal asset is one hotel comprising two buildings. The website's purpose is to inform the family about the waqf's history, the founders, the current state of beneficiaries, and to provide a family tree so members can identify their relatives.
-The site is hybrid public/private: public visitors see general informative content; logged-in family members see additional sections with more detail. For this prototype, do not implement real authentication — instead, add a "View as family member" toggle in the navbar that uses React context to reveal/hide the gated sections. This simulates the eventual logged-in experience.
-Pages and structure
-Build these pages with placeholder content (Lorem Ipsum is fine for body text; use plausible Arabic placeholder for Arabic version, e.g., from arabic-lorem-ipsum):
-
-Home (الرئيسية) — Hero section with the waqf's name and a one-line description, brief intro to what a family waqf is, a "Quick Facts" strip (founded in [year], [N] generations, [N] family members, [N] buildings), a "Founders" preview section with placeholder portraits, a "Our History" timeline teaser, and a footer CTA. Gated section (revealed on toggle): "Recent announcements" and "Upcoming family gatherings" cards.
-About the Waqf (عن الوقف) — What a waqf ذري is, the purpose of this specific waqf, current generation of beneficiaries (placeholder), and a section about the trust's principles. Gated section: details about current distribution arrangements (placeholder).
-History (التاريخ) — Vertical timeline component spanning the founding to today. Generation-by-generation markers. Gated section: additional internal family milestones.
-The Founders (المؤسسون) — Bio cards for 2–3 placeholder founders with portrait placeholders, dates, and short biographies. Gated section: extended biographies and personal anecdotes.
-The Property (الوقف) — One hotel, two buildings. High-level description with photo placeholders. Keep this page minimal for the prototype.
-Family Tree (شجرة العائلة) — Interactive tree component using react-d3-tree or react-organizational-chart. Populate with ~15 dummy family members across 3 generations. Click a node → opens a side panel/modal with that person's details (name, generation, dates, relation to founder). Gated section: clicking a node reveals full info (full name, contact, branch); when not logged in, only first name and generation show. Include a search box that's disabled with a "Sign in to search" tooltip when not in family-view mode.
-Contact (تواصل) — Simple contact form (name, email, message, relation to family dropdown), placeholder submission handler.
-
-Visual design specification
-Direction: Hijazi Modern. Clean, institutional, warm without being decorative-heavy.
-Color palette:
-
-Primary: Deep Hijazi green #1F4A47
-Background: Off-white #FAF8F3
-Surface: Pure white #FFFFFF
-Text primary: Charcoal #1A1A1A
-Text secondary: Warm gray #6B6B68
-Accent (sand): #D4B896
-Accent (deep, for logged-in warmth): Muted terracotta #A85A3E — use sparingly as borders/highlights in gated sections only
-Border: #E8E3D7
-
-Typography:
-
-Arabic headings: Reem Kufi (Google Fonts)
-Arabic body: Tajawal or IBM Plex Sans Arabic
-English headings: Cormorant Garamond (Google Fonts) — gives a refined archival feel
-English body: Inter
-
-Geometric patterns: Use subtle eight-pointed star (نجمة ثمانية) motifs and tessellation as SVG components for: section dividers, the loading state of the family tree, decorative corners on the Founders cards, and the favicon. Patterns should be low-opacity (5–10%) and never compete with content. Provide these as reusable React components in a components/patterns/ folder.
-Layout principles:
-
-Generous whitespace, 8px grid
-Max content width ~1200px
-Section padding: 96px vertical on desktop, 48px on mobile
-Card-based sections with soft shadows (avoid harsh borders)
-The gated "family member" content should be visually distinct: a subtle terracotta left-border accent and a small "Family" badge in the corner
-
-Bilingual requirements
-
-Full RTL/LTR support. Arabic is the primary language; English is secondary.
-Language toggle in navbar (AR / EN), persisted in localStorage.
-Use Next.js i18n routing (/ar and /en).
-Set dir="rtl" on the HTML element when Arabic is active.
-All Tailwind classes must respect direction (use logical properties: ms-4, me-4, ps-, pe- etc., or Tailwind's RTL plugin).
-Mirror the layout properly when in RTL — including the family tree direction, navigation order, and timeline.
-
-Technical stack
-
-Next.js 14+ (App Router) with TypeScript
-Tailwind CSS with custom theme matching the palette above
-Framer Motion for subtle entry animations (fade-up on scroll, no flashy effects)
-next/font for Google Fonts
-react-d3-tree or react-organizational-chart for the family tree (recommend one and justify briefly)
-React Context for: language state, family-view toggle state, theme
-
-Deliverables
-
-Complete Next.js project structure with all pages above
-A components/ folder organized into: layout/ (Navbar, Footer), sections/ (HeroSection, TimelineSection, etc.), patterns/ (geometric SVG components), ui/ (Button, Card, Badge)
-A lib/ folder with the dummy family tree data (JSON) and translation files (ar.json, en.json)
-Tailwind config with the full color palette and font families set up as theme tokens
-README.md with setup instructions, design system documentation (color/font usage), and notes on what's prototype-only vs. production-intended
-Deployed-ready for Vercel — include a brief deployment section
-
-What NOT to build in this prototype
-
-Real authentication (just the toggle)
-A CMS or admin interface
-Real form submission
-Blog functionality
-E-commerce, payments, or distribution tracking
-SEO sitemap/robots/schema (will add in production stage)
-Cookie banners or legal pages
-
-Code quality
-Clean, modular, TypeScript-typed, with brief comments explaining design decisions (especially RTL handling and the family-view toggle pattern). Use semantic HTML. Mobile-first responsive. Components should be self-contained and reusable.{
+{
   "site": {
     "name": "وقف الخضاوردي",
     "tagline": "وقف ذري يضم أصولاً راسخة منذ تأسيس المملكة العربية السعودية"
@@ -94,11 +12,13 @@ Clean, modular, TypeScript-typed, with brief comments explaining design decision
     "familyTree": "شجرة العائلة",
     "contact": "تواصل",
     "familyView": "عرض الأعضاء",
-    "publicView": "عرض الزوار"
+    "publicView": "عرض الزوار",
+    "navigation": "التنقل"
   },
   "footer": {
     "copyright": "© {year} وقف الخضاوردي. جميع الحقوق محفوظة.",
-    "tagline": "صوناً للتراث ووصلة بين الأجيال"
+    "tagline": "صوناً للتراث ووصلة بين الأجيال",
+    "contactUs": "تواصل معنا"
   },
   "home": {
     "hero": {
@@ -285,6 +205,7 @@ Clean, modular, TypeScript-typed, with brief comments explaining design decision
     "readMore": "اقرأ المزيد",
     "loading": "جاري التحميل...",
     "close": "إغلاق",
-    "familyOnly": "للأعضاء فقط"
+    "familyOnly": "للأعضاء فقط",
+    "location": "مكة المكرمة، المملكة العربية السعودية"
   }
 }

@@ -1,12 +1,22 @@
+/**
+ * Gated Content Section
+ * 
+ * Shows family-only content when in family view mode.
+ */
+
 "use client";
 
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/Card";
 import { useFamilyView } from "@/lib/context/FamilyViewContext";
-import arTranslations from "@/lib/translations/ar.json";
+import type { Dictionary } from "@/lib/dictionaries";
 
-export function GatedContent() {
+interface GatedContentProps {
+  dict: Dictionary;
+}
+
+export function GatedContent({ dict }: GatedContentProps) {
   const { isFamilyView } = useFamilyView();
 
   return (
@@ -23,32 +33,32 @@ export function GatedContent() {
             >
               <Card gated>
                 <h3 className="text-xl font-bold text-[#1F4A47] mb-4 font-arabic-heading">
-                  {arTranslations.home.gated.announcements.title}
+                  {dict.home.gated.announcements.title}
                 </h3>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 rounded-full bg-[#A85A3E] mt-2" />
-                    <span className="text-[#6B6B68]">{arTranslations.home.gated.announcements.item1}</span>
+                    <span className="text-[#6B6B68]">{dict.home.gated.announcements.item1}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 rounded-full bg-[#A85A3E] mt-2" />
-                    <span className="text-[#6B6B68]">{arTranslations.home.gated.announcements.item2}</span>
+                    <span className="text-[#6B6B68]">{dict.home.gated.announcements.item2}</span>
                   </li>
                 </ul>
               </Card>
 
               <Card gated>
                 <h3 className="text-xl font-bold text-[#1F4A47] mb-4 font-arabic-heading">
-                  {arTranslations.home.gated.gatherings.title}
+                  {dict.home.gated.gatherings.title}
                 </h3>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 rounded-full bg-[#A85A3E] mt-2" />
-                    <span className="text-[#6B6B68]">{arTranslations.home.gated.gatherings.item1}</span>
+                    <span className="text-[#6B6B68]">{dict.home.gated.gatherings.item1}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 rounded-full bg-[#A85A3E] mt-2" />
-                    <span className="text-[#6B6B68]">{arTranslations.home.gated.gatherings.item2}</span>
+                    <span className="text-[#6B6B68]">{dict.home.gated.gatherings.item2}</span>
                   </li>
                 </ul>
               </Card>
@@ -67,7 +77,7 @@ export function GatedContent() {
                 </svg>
               </div>
               <p className="text-[#6B6B68]">
-                {arTranslations.common.familyOnly}
+                {dict.common.familyOnly}
               </p>
             </motion.div>
           )}

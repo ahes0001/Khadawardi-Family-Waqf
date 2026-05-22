@@ -11,12 +11,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { CornerStar } from "@/components/patterns";
-import { useLanguage } from "@/lib/context/LanguageContext";
-import arTranslations from "@/lib/translations/ar.json";
+import type { Dictionary, Locale } from "@/lib/dictionaries";
 
-export function AboutPreview() {
-  const { language } = useLanguage();
+interface AboutPreviewProps {
+  dict: Dictionary;
+  lang: Locale;
+}
 
+export function AboutPreview({ dict, lang }: AboutPreviewProps) {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
       <CornerStar position="top-right" size={120} />
@@ -30,16 +32,16 @@ export function AboutPreview() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-[#1F4A47] font-arabic-heading mb-6">
-            {arTranslations.home.aboutWaqf.title}
+            {dict.home.aboutWaqf.title}
           </h2>
           
           <p className="text-lg text-[#6B6B68] leading-relaxed mb-8 max-w-2xl mx-auto">
-            {arTranslations.home.aboutWaqf.description}
+            {dict.home.aboutWaqf.description}
           </p>
 
-          <Link href={`/${language}/about`}>
+          <Link href={`/${lang}/about`}>
             <Button variant="outline">
-              {arTranslations.common.readMore}
+              {dict.common.readMore}
             </Button>
           </Link>
         </motion.div>

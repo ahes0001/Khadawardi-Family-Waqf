@@ -1,3 +1,9 @@
+/**
+ * Footer CTA Section
+ * 
+ * Call-to-action section before the footer.
+ */
+
 "use client";
 
 import React from "react";
@@ -5,12 +11,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { EightPointedStar } from "@/components/patterns";
-import { useLanguage } from "@/lib/context/LanguageContext";
-import arTranslations from "@/lib/translations/ar.json";
+import type { Dictionary, Locale } from "@/lib/dictionaries";
 
-export function FooterCTA() {
-  const { language } = useLanguage();
+interface FooterCTAProps {
+  dict: Dictionary;
+  lang: Locale;
+}
 
+export function FooterCTA({ dict, lang }: FooterCTAProps) {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#1F4A47] relative overflow-hidden">
       {/* Background decoration */}
@@ -30,16 +38,16 @@ export function FooterCTA() {
           <EightPointedStar size={48} color="#D4B896" className="mx-auto mb-6" />
           
           <h2 className="text-3xl sm:text-4xl font-bold text-white font-arabic-heading mb-4">
-            {arTranslations.site.name}
+            {dict.site.name}
           </h2>
           
           <p className="text-lg text-white/70 mb-8 max-w-xl mx-auto">
-            {arTranslations.footer.tagline}
+            {dict.footer.tagline}
           </p>
 
-          <Link href={`/${language}/contact`}>
+          <Link href={`/${lang}/contact`}>
             <Button variant="secondary" size="lg">
-              {arTranslations.nav.contact}
+              {dict.nav.contact}
             </Button>
           </Link>
         </motion.div>

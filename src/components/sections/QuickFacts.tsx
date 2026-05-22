@@ -10,7 +10,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { StatCard } from "@/components/ui/Card";
 import { StarDivider } from "@/components/patterns";
-import arTranslations from "@/lib/translations/ar.json";
+import type { Dictionary } from "@/lib/dictionaries";
+
+interface QuickFactsProps {
+  dict: Dictionary;
+}
 
 const facts = [
   { key: "founded", value: "1932", icon: "calendar" },
@@ -42,9 +46,9 @@ const icons = {
   ),
 };
 
-export function QuickFacts() {
+export function QuickFacts({ dict }: QuickFactsProps) {
   const getLabel = (key: string) => {
-    const template = (arTranslations.home.quickFacts as Record<string, string>)[key];
+    const template = (dict.home.quickFacts as Record<string, string>)[key];
     if (key === "founded") return template.replace("{year}", "1932");
     if (key === "generations") return template.replace("{count}", "9");
     if (key === "members") return template.replace("{count}", "200+");
@@ -61,7 +65,7 @@ export function QuickFacts() {
         className="text-center mb-12"
       >
         <h2 className="text-2xl sm:text-3xl font-bold text-[#1F4A47] font-arabic-heading mb-4">
-          {arTranslations.home.quickFacts.title}
+          {dict.home.quickFacts.title}
         </h2>
       </motion.div>
 
